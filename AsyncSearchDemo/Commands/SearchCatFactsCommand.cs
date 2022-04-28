@@ -5,16 +5,20 @@ using MVVMEssentials.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
 namespace AsyncSearchDemo.Commands
 {
-    public class SearchCatFactsCommand : AsyncCommandBase
+    public class SearchCatFactsCommand : CommandBase
     {
         private readonly MainViewModel _viewModel;
         private readonly CatFactsQuery _query;
+
+        private IDisposable _currentSearch;
 
         public SearchCatFactsCommand(MainViewModel viewModel, CatFactsQuery query)
         {
@@ -22,21 +26,26 @@ namespace AsyncSearchDemo.Commands
             _query = query;
         }
 
-        protected override async Task ExecuteAsync(object parameter)
+        public override void Execute(object parameter)
         {
             _viewModel.IsLoading = true;
 
-            try
-            {
-                IEnumerable<CatFact> catFacts = await _query.Execute(_viewModel.Search);
-                _viewModel.UpdateCatFacts(catFacts.Select(c => c.Content));
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Failed to load cat facts.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
-            _viewModel.IsLoading = false;
+            _currentSearch?.Dispose();
+            _currentSearch = Observable
+                .FromAsync(() => _query.Execute(_viewModel.Search))
+                .ObserveOn(SynchronizationContext.Current)
+                .Subscribe((catFacts) =>
+                {
+                    _viewModel.UpdateCatFacts(catFacts.Select(c => c.Content));
+                },
+                (error) =>
+                {
+                    MessageBox.Show("Failed to load cat facts.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                },
+                () =>
+                {
+                    _viewModel.IsLoading = false;
+                });
         }
     }
 }
