@@ -1,24 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reactive.Subjects;
 
 namespace StoreDemo.Stores
 {
     public class GroceryListStore
     {
+        private readonly Subject<string> _itemAddedSubject;
+
         private readonly List<string> _items;
         public IEnumerable<string> Items => _items;
 
-        public event Action<string> ItemAdded;
+        public IObservable<string> ItemAddedObservable => _itemAddedSubject;
 
         public GroceryListStore()
         {
             _items = new List<string>();
+
+            _itemAddedSubject = new Subject<string>();
         }
 
         public void AddItem(string description)
         {
             _items.Add(description);
-            ItemAdded?.Invoke(description);
+            _itemAddedSubject.OnNext(description);
         }
     }
 }
