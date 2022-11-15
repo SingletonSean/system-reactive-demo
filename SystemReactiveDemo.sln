@@ -14,7 +14,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncSearchDemo", "AsyncSearchDemo\AsyncSearchDemo.csproj", "{2C3594CC-8769-4E52-A5AC-65F57E600900}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreDemo", "StoreDemo\StoreDemo.csproj", "{DFFB317D-76AC-4700-9C2F-E8066B627B24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreDemo", "StoreDemo\StoreDemo.csproj", "{DFFB317D-76AC-4700-9C2F-E8066B627B24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaginationDemo", "PaginationDemo\PaginationDemo.csproj", "{75E21DD2-4A19-47D0-B876-B2C2B058E007}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,12 @@ Global
 		{DFFB317D-76AC-4700-9C2F-E8066B627B24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFFB317D-76AC-4700-9C2F-E8066B627B24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFFB317D-76AC-4700-9C2F-E8066B627B24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75E21DD2-4A19-47D0-B876-B2C2B058E007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75E21DD2-4A19-47D0-B876-B2C2B058E007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75E21DD2-4A19-47D0-B876-B2C2B058E007}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{75E21DD2-4A19-47D0-B876-B2C2B058E007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75E21DD2-4A19-47D0-B876-B2C2B058E007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75E21DD2-4A19-47D0-B876-B2C2B058E007}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

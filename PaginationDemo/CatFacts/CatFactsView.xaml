@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PaginationDemo.CatFacts.CatFactsView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ScrollView>
+        <VerticalStackLayout Padding="25" MaximumWidthRequest="600">
+            <Label FontSize="28" Text="Cat Facts" />
+            <CollectionView Margin="0,20,0,0" ItemsSource="{Binding CatFacts}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label
+                            Padding="0,0,0,15"
+                            LineBreakMode="WordWrap"
+                            Text="{Binding}" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <HorizontalStackLayout Margin="0,20,0,0" HorizontalOptions="End">
+                <Label Text="Items per page" VerticalOptions="Center" />
+                <Button
+                    Margin="10,0,0,0"
+                    Padding="5,2"
+                    Background="Gray"
+                    HorizontalOptions="Center"
+                    Text="10" />
+                <Button
+                    Margin="2,0,0,0"
+                    Padding="5,2"
+                    Background="Gray"
+                    HorizontalOptions="Center"
+                    Text="20" />
+                <Button
+                    Margin="2,0,0,0"
+                    Padding="5,2"
+                    Background="Gray"
+                    HorizontalOptions="Center"
+                    Text="50" />
+            </HorizontalStackLayout>
+            <Grid Margin="0,20,0,0" ColumnDefinitions="*,*">
+                <Button
+                    Grid.Column="0"
+                    Margin="5"
+                    Text="Previous" />
+                <Button
+                    Grid.Column="1"
+                    Margin="5"
+                    Text="Next" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
