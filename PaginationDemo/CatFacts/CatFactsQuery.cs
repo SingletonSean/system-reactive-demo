@@ -4,11 +4,11 @@ namespace PaginationDemo.CatFacts
 {
     public class CatFactsQuery
     {
-        public async Task<CatFactListing> Execute(int offset = 0, int limit = 50)
+        public async Task<CatFactListing> Execute(int offset = 0, int limit = 50, CancellationToken cancellationToken = default)
         {
             using (HttpClient client = new HttpClient())
             {
-                CatFactListingResponse response = await client.GetFromJsonAsync<CatFactListingResponse>("https://catfact.ninja/facts?limit=45");
+                CatFactListingResponse response = await client.GetFromJsonAsync<CatFactListingResponse>("https://catfact.ninja/facts?limit=45", cancellationToken);
 
                 if (response == null)
                 {
@@ -26,7 +26,7 @@ namespace PaginationDemo.CatFacts
                 return new CatFactListing()
                 {
                     CatFacts = catFacts,
-                    Total = catFacts.Count()
+                    Total = response.Data.Count()
                 };
             }
         }

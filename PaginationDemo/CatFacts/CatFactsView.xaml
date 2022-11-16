@@ -22,18 +22,24 @@
                     Margin="10,0,0,0"
                     Padding="5,2"
                     Background="Gray"
+                    Command="{Binding UpdateItemsPerPageCommand}"
+                    CommandParameter="{x:Int32 10}"
                     HorizontalOptions="Center"
                     Text="10" />
                 <Button
                     Margin="2,0,0,0"
                     Padding="5,2"
                     Background="Gray"
+                    Command="{Binding UpdateItemsPerPageCommand}"
+                    CommandParameter="{x:Int32 20}"
                     HorizontalOptions="Center"
                     Text="20" />
                 <Button
                     Margin="2,0,0,0"
                     Padding="5,2"
                     Background="Gray"
+                    Command="{Binding UpdateItemsPerPageCommand}"
+                    CommandParameter="{x:Int32 50}"
                     HorizontalOptions="Center"
                     Text="50" />
             </HorizontalStackLayout>
@@ -41,10 +47,14 @@
                 <Button
                     Grid.Column="0"
                     Margin="5"
+                    Command="{Binding PreviousPageCommand}"
+                    IsEnabled="{Binding HasPreviousPage}"
                     Text="Previous" />
                 <Button
                     Grid.Column="1"
                     Margin="5"
+                    Command="{Binding NextPageCommand}"
+                    IsEnabled="{Binding HasNextPage}"
                     Text="Next" />
             </Grid>
         </VerticalStackLayout>
