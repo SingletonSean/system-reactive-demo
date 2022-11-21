@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ParallelDemo.CatFacts.CatFactsView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ScrollView>
+        <VerticalStackLayout Padding="25" MaximumWidthRequest="600">
+            <Label FontSize="24" Text="Cat Fact of the Day" />
+            <Label
+                Margin="0,10,0,0"
+                LineBreakMode="WordWrap"
+                Text="{Binding DailyCatFact}" />
+
+            <Label
+                Margin="0,25,0,0"
+                FontSize="24"
+                Text="Other Cat Facts" />
+            <CollectionView Margin="0,10,0,0" ItemsSource="{Binding CatFacts}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label
+                            Padding="0,0,0,15"
+                            LineBreakMode="WordWrap"
+                            Text="{Binding}" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

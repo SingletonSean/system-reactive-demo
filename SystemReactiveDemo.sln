@@ -16,7 +16,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncSearchDemo", "AsyncSea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreDemo", "StoreDemo\StoreDemo.csproj", "{DFFB317D-76AC-4700-9C2F-E8066B627B24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaginationDemo", "PaginationDemo\PaginationDemo.csproj", "{75E21DD2-4A19-47D0-B876-B2C2B058E007}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaginationDemo", "PaginationDemo\PaginationDemo.csproj", "{75E21DD2-4A19-47D0-B876-B2C2B058E007}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelDemo", "ParallelDemo\ParallelDemo.csproj", "{AF5A6CCD-D50F-45D4-930B-1D8DD731E1B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,6 +48,12 @@ Global
 		{75E21DD2-4A19-47D0-B876-B2C2B058E007}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75E21DD2-4A19-47D0-B876-B2C2B058E007}.Release|Any CPU.Build.0 = Release|Any CPU
 		{75E21DD2-4A19-47D0-B876-B2C2B058E007}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{AF5A6CCD-D50F-45D4-930B-1D8DD731E1B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF5A6CCD-D50F-45D4-930B-1D8DD731E1B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF5A6CCD-D50F-45D4-930B-1D8DD731E1B0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AF5A6CCD-D50F-45D4-930B-1D8DD731E1B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF5A6CCD-D50F-45D4-930B-1D8DD731E1B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF5A6CCD-D50F-45D4-930B-1D8DD731E1B0}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
