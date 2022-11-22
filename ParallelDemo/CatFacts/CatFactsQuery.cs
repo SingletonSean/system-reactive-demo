@@ -8,7 +8,7 @@ namespace ParallelDemo.CatFacts
         {
             using (HttpClient client = new HttpClient())
             {
-                CatFactListingResponse response = await client.GetFromJsonAsync<CatFactListingResponse>("https://catfact.ninja/facts?limit=25");
+                CatFactListingResponse response = await client.GetFromJsonAsync<CatFactListingResponse>("https://catfact.ninja/facts?limit=10");
 
                 if (response == null)
                 {

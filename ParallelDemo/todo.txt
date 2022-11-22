@@ -1,0 +1,42 @@
+﻿ObservableEx
+    .ForkJoin(
+        Observable
+            .FromAsync(() => _dailyCatFactQuery.Execute())
+            .Retry(1)
+            .Select(data => new Result<CatFact>(data))
+            .Catch<Result<CatFact>, Exception>(ex => 
+                Observable.Return(new Result<CatFact>(ex))),
+        Observable
+            .FromAsync(() => _catFactsQuery.Execute())
+            .Retry(1)
+            .Select(data => new Result<IEnumerable<CatFact>>(data))
+            .Catch<Result<IEnumerable<CatFact>>, Exception>(ex => 
+                Observable.Return(new Result<IEnumerable<CatFact>>(ex))),
+        (dailyCatFactResult, catFactsResult) => new CatFactsForkJoinResult(dailyCatFactResult, catFactsResult))
+    .Subscribe((result) =>
+    {
+        DailyCatFact = result.DailyCatFact.Data?.Content;
+
+        CatFacts.Clear();
+
+        foreach (CatFact catFact in result.CatFacts.Data)
+        {
+            CatFacts.Add(catFact.Content);
+        }
+    });
+
+private class Result<T>
+{
+    public T Data { get; set; }
+    public Exception Error { get; set; }
+
+    public Result(T data)
+    {
+        Data = data;
+    }
+
+    public Result(Exception error)
+    {
+        Error = error;
+    }
+}

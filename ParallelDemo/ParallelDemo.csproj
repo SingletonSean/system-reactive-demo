@@ -49,7 +49,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="todo.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <PackageReference Include="MVVMEssentials.WPF" Version="1.0.3" />
+	  <PackageReference Include="System.Reactive" Version="5.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
